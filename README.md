@@ -34,6 +34,8 @@ Other content includes:
 - OpenAtMicrosoft X account
 - This repository
 
+Microsoft-internal information is available regarding the site at [https://docs.opensource.microsoft.com/community/in-public/public-site/](https://docs.opensource.microsoft.com/community/in-public/public-site/) (requires corporate authentication).
+
 # Contributing
 
 ## Code of Conduct
@@ -91,5 +93,15 @@ npm install
 npm run dev
 ```
 
+To run the automated accessibility checks for the primary site pages:
+
+```sh
+npm run a11y:install
+npm run a11y
+```
+
+The accessibility check builds the exported site, serves the generated `out/` folder locally, and runs axe-based checks in Chromium against the main routes. In CI, the workflow reuses the existing build output instead of rebuilding.
+
 The `Dockerfile` is available to host a local `nginx` version of the static site,
 although dynamic site features are not available when running local.
+
